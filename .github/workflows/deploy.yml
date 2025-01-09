@@ -32,6 +32,9 @@ jobs:
     - name: Build NPM Assets
       run: npm run build
 
+    - name: Set SSH Key Permissions
+      run: chmod 600 /home/runner/.ssh/deploy_key
+
     - name: Synchronize Files To Server
       uses: easingthemes/ssh-deploy@v2.1.5
       env:
@@ -51,7 +54,3 @@ jobs:
           cd /var/www/html/ecomapp
           php artisan migrate --force
           php artisan optimize
-          php artisan config:cache
-          php artisan route:cache
-          php artisan view:cache
-          
