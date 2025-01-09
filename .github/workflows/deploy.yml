@@ -36,10 +36,13 @@ jobs:
       run: mkdir -p /home/runner/.ssh
 
     - name: Add SSH Key
-      run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > /home/runner/.ssh/deploy_key
+      run: echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > /home/runner/.ssh/deploy_key
 
     - name: Set SSH Key Permissions
       run: chmod 600 /home/runner/.ssh/deploy_key
+
+    - name: Add Known Hosts
+      run: ssh-keyscan -H ${{ secrets.VPS_HOST }} >> /home/runner/.ssh/known_hosts
 
     - name: Synchronize Files To Server
       uses: easingthemes/ssh-deploy@v2.1.5
