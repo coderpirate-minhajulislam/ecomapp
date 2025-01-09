@@ -53,9 +53,20 @@ jobs:
     - name: Run Remote/Artisan Commands
       uses: appleboy/ssh-action@v0.1.6
       with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        host: 159.223.76.15
+        username: minhaz
+        key: -----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAArAAAABNlY2RzYS
+1zaGEyLW5pc3RwNTIxAAAACG5pc3RwNTIxAAAAhQQBJh6/BX7jte2wOWkDhNpypbx82/gx
+waSUPAOUMgaqF/46a2zqKPtoI7NrjDg2kLC0xeWRj42Mecdej8TJjfQfRxQAiPc5HtoNRR
+wUySv9qZu+UnX4MXtb1wSKykEIhQGT/lS51DdpGXGp+5Fbv97/ltbGXt4gijp4k1CDOi3V
+SPx68S0AAAEYCCibiggom4oAAAATZWNkc2Etc2hhMi1uaXN0cDUyMQAAAAhuaXN0cDUyMQ
+AAAIUEASYevwV+47XtsDlpA4TacqW8fNv4McGklDwDlDIGqhf+Omts6ij7aCOza4w4NpCw
+tMXlkY+NjHnHXo/EyY30H0cUAIj3OR7aDUUcFMkr/ambvlJ1+DF7W9cEispBCIUBk/5Uud
+Q3aRlxqfuRW7/e/5bWxl7eIIo6eJNQgzot1Uj8evEtAAAAQS3oAx5qbC5STtwUPf7qMVkE
+K2yelO1UwB8oHssIQq93wZJjSRtO/anQixbx6sSMUHPZzjMhITZ1puUhQ4n/Oh0+AAAAFW
+15cGNtQERFU0tUT1AtNTZHVlJDMgECAwQFBg==
+-----END OPENSSH PRIVATE KEY-----
         script: |
           cd /var/www/html/ecomapp
           php artisan migrate --force
