@@ -1,0 +1,49 @@
+# Ignore cache files
+/.phpunit.cache
+/.phpunit.result.cache
+
+# Node modules
+/node_modules
+
+# Build and hot-reload files
+/public/build
+/public/hot
+
+# Storage files
+/public/storage
+/storage/*.key
+/storage/pail
+
+# Vendor files
+/vendor
+
+# Environment files
+.env
+.env.backup
+.env.production
+
+# IDE and editor files
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+
+# Docker files and data
+Dockerfile
+docker-compose.yml
+/docker
+/redis-data
+/mysql-data
+
+# Configuration files
+Homestead.json
+Homestead.yaml
+auth.json
+
+# Log files
+npm-debug.log
+yarn-error.log
+
+# PHPUnit
+.phpactor.json
