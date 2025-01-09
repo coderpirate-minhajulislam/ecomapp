@@ -23,7 +23,7 @@ jobs:
     - name: Install Node
       uses: actions/setup-node@v3
       with:
-        node-version: '22'
+        node-version: '20'
 
     - name: Install NPM Dependencies
       run: npm install
@@ -31,22 +31,22 @@ jobs:
     - name: Build NPM Assets
       run: npm run build
 
-    # - name: Synchronize Files To Server
-    #   uses: appleboy/scp-action@v0.1.1
-    #   with:
-    #     host: ${{ secrets.VPS_HOST }}
-    #     username: ${{ secrets.VPS_USER }}
-    #     password: ${{ secrets.VPS_PASSWORD }}
-    #     source: "."
-    #     target: "/var/www/html/prodapp/"
+    - name: Synchronize Files To Server
+      uses: easingthemes/ssh-deploy@v2.1.5
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        SOURCE: "."
+        REMOTE_HOST: ${{ secrets.VPS_HOST }}
+        REMOTE_USER: ${{ secrets.VPS_USER }}
+        TARGET: "/var/www/html/ecomapp"
 
-    # - name: Run Remote/Artisan Commands
-    #   uses: appleboy/ssh-action@v0.1.6
-    #   with:
-    #     host: ${{ secrets.VPS_HOST }}
-    #     username: ${{ secrets.VPS_USER }}
-    #     password: ${{ secrets.VPS_PASSWORD }}
-    #     script: |
-    #       cd /var/www/html/prodapp
-    #       php artisan migrate --force
-    #       php artisan optimize
+    - name: Run Remote/Artisan Commands
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd /var/www/html/ecomapp
+          php artisan migrate --force
+          php artisan optimize
