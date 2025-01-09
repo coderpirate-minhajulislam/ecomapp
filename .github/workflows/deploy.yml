@@ -47,7 +47,7 @@ jobs:
         username: ${{ secrets.VPS_USER }}
         password: ${{ secrets.VPS_PASSWORD }}
         script: |
-          cd /var/www/html/ecommapp
+          cd /var/www/html/ecomapp
           php artisan migrate --force
           php artisan optimize
           php artisan config:cache
