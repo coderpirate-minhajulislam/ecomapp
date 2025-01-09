@@ -53,8 +53,8 @@ jobs:
     - name: Run Remote/Artisan Commands
       uses: appleboy/ssh-action@v0.1.6
       with:
-        host: 159.223.76.15
-        username: minhaz
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd /var/www/html/ecomapp
