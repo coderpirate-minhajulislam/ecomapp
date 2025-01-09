@@ -32,6 +32,12 @@ jobs:
     - name: Build NPM Assets
       run: npm run build
 
+    - name: Create SSH Key Directory
+      run: mkdir -p /home/runner/.ssh
+
+    - name: Add SSH Key
+      run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > /home/runner/.ssh/deploy_key
+
     - name: Set SSH Key Permissions
       run: chmod 600 /home/runner/.ssh/deploy_key
 
