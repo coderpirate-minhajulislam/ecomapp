@@ -48,10 +48,15 @@ jobs:
         password: ${{ secrets.VPS_PASSWORD }}
         script: |
           cd /var/www/html/ecomapp
+          sudo chown -R www-data:www-data /var/www/html/ecomapp
+          sudo chmod -R 775 /var/www/html/ecomapp/storage
+          sudo chmod -R 775 /var/www/html/ecomapp/bootstrap/cache
+
           php artisan migrate --force
           php artisan optimize
           php artisan config:cache
           php artisan route:cache
           php artisan view:cache
+          
           
           
