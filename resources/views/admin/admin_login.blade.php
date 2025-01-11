@@ -20,7 +20,6 @@
 	<link href="{{asset('adminbackend/assets/css/icons.css')}}" rel="stylesheet">
 	<title>Admin Login </title>
 </head>
-
 <body class="bg-login">
 	<!--wrapper-->
 	<div class="wrapper">
@@ -35,26 +34,16 @@
 							<div class="card-body">
 								<div class="border p-4 rounded">
 									<div class="text-center">
-										<h3 class="">Sign in</h3>
-										<p>Don't have an account yet? <a href="authentication-signup.html">Sign up here</a>
-										</p>
+										<h3 class=""> Admin Sign in</h3>
+										
 									</div>
-									<div class="d-grid">
-										<a class="btn my-4 shadow-sm btn-white" href="javascript:;"> <span class="d-flex justify-content-center align-items-center">
-                          <img class="me-2" src="{{asset('adminbackend/assets/images/icons/search.svg')}}" width="16" alt="Image Description">
-                          <span>Sign in with Google</span>
-											</span>
-										</a> <a href="javascript:;" class="btn btn-facebook"><i class="bx bxl-facebook"></i>Sign in with Facebook</a>
-									</div>
-									<div class="login-separater text-center mb-4"> <span>OR SIGN IN WITH EMAIL</span>
-										<hr/>
-									</div>
+									
 									<div class="form-body">
 										<form class="row g-3" method="POST" action="{{ route('login') }}">
                                             @csrf
 											<div class="col-12">
 												<label for="inputEmailAddress" class="form-label">Email Address</label>
-												<input type="email" name="email" class="form-control" id="email" placeholder="Email Address">
+												<input type="email" name="email" class="form-control" id="email" placeholder="Email Address" value="admin@gmail.com">
 											</div>
 											<div class="col-12">
 												<label for="inputChoosePassword" class="form-label">Enter Password</label>
