@@ -20,11 +20,14 @@
     <link href="{{ asset('adminbackend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('adminbackend/assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('adminbackend/assets/css/icons.css') }}" rel="stylesheet">
+   <!---Tostar CSS--> 
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+    
     <!-- Theme Style CSS -->
     <link rel="stylesheet" href="{{ asset('adminbackend/assets/css/dark-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('adminbackend/assets/css/semi-dark.css') }}" />
     <link rel="stylesheet" href="{{ asset('adminbackend/assets/css/header-colors.css') }}" />
-    <title>Rukada - Responsive Bootstrap 5 Admin Template</title>
+    <title>Admin Dashboard</title>
 </head>
 
 <body>
@@ -171,6 +174,31 @@
     <script src="{{ asset('adminbackend/assets/js/index.js') }}"></script>
     <!--app JS-->
     <script src="{{ asset('adminbackend/assets/js/app.js') }}"></script>
+    <!-- Tostar JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type','info') }}"
+        switch(type){
+           case 'info':
+           toastr.info(" {{ Session::get('message') }} ");
+           break;
+       
+           case 'success':
+           toastr.success(" {{ Session::get('message') }} ");
+           break;
+       
+           case 'warning':
+           toastr.warning(" {{ Session::get('message') }} ");
+           break;
+       
+           case 'error':
+           toastr.error(" {{ Session::get('message') }} ");
+           break; 
+        }
+        @endif 
+       </script>
+       
 </body>
 
 </html>
