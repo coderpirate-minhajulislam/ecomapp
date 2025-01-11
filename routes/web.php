@@ -23,12 +23,17 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-//admin routes
+//admin routes==============================================================================================
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
+    Route::get('/admin/logout', [AdminController::class, 'AdminDestroy'])->name('admin.logout');
 });
 
-//vendor routes
+//vendor routes==============================================================================================
 Route::middleware(['auth', 'vendor'])->group(function () {
     Route::get('/vendor/dashboard', [VendorController::class, 'VendorDashboard'])->name('vendor.dashboard');
 });
+
+
+//public routes==============================================================================================
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
