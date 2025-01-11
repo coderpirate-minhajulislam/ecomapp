@@ -44,6 +44,7 @@ class AdminController extends Controller
     {
         $id = Auth::user()->id;
         $user = User::find($id);
+        $user->username = $request->username;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
