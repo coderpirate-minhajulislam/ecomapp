@@ -14,8 +14,8 @@
         rel="stylesheet" />
     <link href="{{ asset('adminbackend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
     <!-- loader-->
-    <link href="{{ asset('adminbackend/assets/css/pace.min.css') }}" rel="stylesheet" />
-    <script src="{{ asset('adminbackend/assets/js/pace.min.js') }}"></script>
+    {{-- <link href="{{ asset('adminbackend/assets/css/pace.min.css') }}" rel="stylesheet" />
+    <script src="{{ asset('adminbackend/assets/js/pace.min.js') }}"></script> --}}
     <!-- Bootstrap CSS -->
     <link href="{{ asset('adminbackend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('adminbackend/assets/css/app.css') }}" rel="stylesheet">
